@@ -6,24 +6,31 @@ using System.Threading.Tasks;
 
 namespace AddressBookAssignmentProblem
 {
-    public static class PersonDetials
+    public class PersonDetials
     {
-        public static void CreatePersonContact()
+        //Creating a list 
+        public static List<Contact> contacts = new List<Contact>();
+        //Method for Adding Person
+        public static void AddPerson()
         {
+            Contact contact = new Contact();
+
             Console.Write("Enter First Name: ");
-            string firstName = Console.ReadLine();
+            contact.firstName = Console.ReadLine();
 
             Console.Write("Enter Last Name: ");
-            string lastName = Console.ReadLine();
+            contact.lastName = Console.ReadLine();
 
             Console.Write("enter the Phone number: ");
-            long phoneNumber = long.Parse(Console.ReadLine());
+            contact.phoneNumber = long.Parse(Console.ReadLine());
 
             Console.Write("Enter the zipcode: ");
-            int zipCode = int.Parse(Console.ReadLine());
+            contact.zipCode = int.Parse(Console.ReadLine());
 
             Console.Write("Enter the city: ");
-            string city = Console.ReadLine();
+            contact.city = Console.ReadLine();
+
+            contacts.Add(contact);
         }
     }
 }

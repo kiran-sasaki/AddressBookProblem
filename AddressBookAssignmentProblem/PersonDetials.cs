@@ -74,5 +74,19 @@ namespace AddressBookAssignmentProblem
                 }
             }
         }
+        //Method for deleting a person contact
+        public static void DeleteContact()
+        {
+            Console.Write("enter the name to delete: ");
+            string personName = Console.ReadLine();
+            for (int i = 0; i < contacts.Count; i++)
+            {
+                if (contacts[i].firstName == personName)
+                {
+                    Console.WriteLine("Record Of {0} Deleted Successfully", contacts[i].firstName);
+                    contacts.RemoveAt(i);
+                }
+            }
+        }
     }
 }

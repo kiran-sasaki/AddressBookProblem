@@ -88,5 +88,16 @@ namespace AddressBookAssignmentProblem
                 }
             }
         }
+        //
+        public static void MultipleContacts()
+        {
+            Console.WriteLine("Enter The Number of Contacts To Add");
+            int A = int.Parse(Console.ReadLine());
+            while (A > 0)
+            {
+                AddPerson();
+                A--;
+            }
+        }
     }
 }

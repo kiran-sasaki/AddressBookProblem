@@ -9,24 +9,30 @@
             PersonDetials person = new PersonDetials();
             while (true)
             {
-                Console.WriteLine("Enter number: \n 1. create new person \n 2. Display Data \n 3. Edit person Data  \n 4. Delete Person Data \n 5.Add Multiple Contacts");
+                Console.WriteLine("Enter number: \n 1. create new person \n 2. Display Data \n 3. Edit person Data  \n 4. Delete Person Data \n 5.Add Multiple Contacts  \n 6.Add With UniqueBookName \n 7.Display Dictionary ");
                 int input = Convert.ToInt32(Console.ReadLine());
                 switch (input)
                 {
                     case 1:
-                        PersonDetials.AddPerson();
+                        person.AddPerson();
                         break;
                     case 2:
-                        PersonDetials.listPerson();
+                        person.listPerson();
                         break;
                     case 3:
-                        PersonDetials.EditPerson();
+                        person.EditPerson();
                         break;
                     case 4:
-                        PersonDetials.DeleteContact();
+                        person.DeleteContact();
                         break;
                     case 5:
-                        PersonDetials.MultipleContacts();
+                        person.MultipleContacts();
+                        break;
+                    case 6:
+                        person.NewUser();
+                        break;
+                    case 7:
+                        person.Display();
                         break;
                 }
             }

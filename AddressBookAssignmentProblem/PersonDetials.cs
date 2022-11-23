@@ -10,8 +10,10 @@ namespace AddressBookAssignmentProblem
     {
         //Creating a list 
         public static List<Contact> contacts = new List<Contact>();
+        //Creating a Dictionary
+        Dictionary<string, List<Contact>> book = new Dictionary<string,List<Contact>>();
         //Method for Adding Person
-        public static void AddPerson()
+        public void AddPerson()
         {
             Contact contact = new Contact();
 
@@ -33,20 +35,20 @@ namespace AddressBookAssignmentProblem
             contacts.Add(contact);
         }
         //For Displaying The Contact of A person
-        public static void listPerson()
+        public void listPerson()
         {
             foreach (var data in contacts)
             {
-                Console.WriteLine(data.firstName);
-                Console.WriteLine(data.lastName);
-                Console.WriteLine(data.phoneNumber);
-                Console.WriteLine(data.city);
-                Console.WriteLine(data.zipCode);
+                Console.WriteLine("FirstName: "+data.firstName);
+                Console.WriteLine("LastName: "+data.lastName);
+                Console.WriteLine("PhoneNumber: "+data.phoneNumber);
+                Console.WriteLine("City: "+data.city);
+                Console.WriteLine("Zipcode: "+data.zipCode);
 
             }
         }
         //Method For Editing contact Detials of a Person
-        public static void EditPerson()
+        public void EditPerson()
         {
             Console.Write("enter the name to edit: ");
             string editname = Console.ReadLine();
@@ -75,7 +77,7 @@ namespace AddressBookAssignmentProblem
             }
         }
         //Method for deleting a person contact
-        public static void DeleteContact()
+        public void DeleteContact()
         {
             Console.Write("enter the name to delete: ");
             string personName = Console.ReadLine();
@@ -89,7 +91,7 @@ namespace AddressBookAssignmentProblem
             }
         }
         //
-        public static void MultipleContacts()
+        public void MultipleContacts()
         {
             Console.WriteLine("Enter The Number of Contacts To Add");
             int A = int.Parse(Console.ReadLine());
@@ -99,5 +101,35 @@ namespace AddressBookAssignmentProblem
                 A--;
             }
         }
+        public void  NewUser()
+        {
+            Console.WriteLine("Enter the Bookname: ");
+            string Bookname = Console.ReadLine();
+            Console.WriteLine("Enter The Number of Contacts To Add");
+            int A = int.Parse(Console.ReadLine());
+            while (A > 0)
+            {
+
+                A--;
+                AddPerson();
+            }
+            book.Add(Bookname, contacts.ToList());
+        }
+        public void Display()
+        {
+            foreach (var pair in book.Keys)
+            {
+                Console.WriteLine("Address Book Name " + pair);
+                foreach (Contact kvp in book[pair])
+                {
+                    Console.WriteLine("First Name: " + kvp.firstName);
+                    Console.WriteLine("Last Name: " + kvp.lastName);
+                    Console.WriteLine("City : " + kvp.city);
+                    Console.WriteLine("Zip : " + kvp.zipCode);
+                    Console.WriteLine("Phone Number: " + kvp.phoneNumber);
+                }
+            }
+        }
+
     }
 }

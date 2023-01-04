@@ -11,7 +11,7 @@ namespace AddressBookAssignmentProblem
         //Creating a list 
         public static List<Contact> contacts = new List<Contact>();
         //Creating a Dictionary
-        Dictionary<string, List<Contact>> book = new Dictionary<string,List<Contact>>();
+        Dictionary<string, List<Contact>> book = new Dictionary<string, List<Contact>>();
         //Method for Adding Person
         public void AddPerson()
         {
@@ -39,11 +39,11 @@ namespace AddressBookAssignmentProblem
         {
             foreach (var data in contacts)
             {
-                Console.WriteLine("FirstName: "+data.firstName);
-                Console.WriteLine("LastName: "+data.lastName);
-                Console.WriteLine("PhoneNumber: "+data.phoneNumber);
-                Console.WriteLine("City: "+data.city);
-                Console.WriteLine("Zipcode: "+data.zipCode);
+                Console.WriteLine("FirstName: " + data.firstName);
+                Console.WriteLine("LastName: " + data.lastName);
+                Console.WriteLine("PhoneNumber: " + data.phoneNumber);
+                Console.WriteLine("City: " + data.city);
+                Console.WriteLine("Zipcode: " + data.zipCode);
 
             }
         }
@@ -101,7 +101,7 @@ namespace AddressBookAssignmentProblem
                 A--;
             }
         }
-        public void  NewUser()
+        public void NewUser()
         {
             Console.WriteLine("Enter the Bookname: ");
             string Bookname = Console.ReadLine();
@@ -109,7 +109,6 @@ namespace AddressBookAssignmentProblem
             int A = int.Parse(Console.ReadLine());
             while (A > 0)
             {
-
                 A--;
                 AddPerson();
             }
@@ -130,6 +129,22 @@ namespace AddressBookAssignmentProblem
                 }
             }
         }
-
+        public void DuplicateContact()
+        {
+            Console.WriteLine("enter the name to check: ");
+            string personName = Console.ReadLine();
+            Console.WriteLine("Enter phonenumber");
+            long phnno = long.Parse(Console.ReadLine());
+            bool check = contacts.Any(e => e.firstName == personName && e.phoneNumber == phnno);
+            if (check)
+            {
+                Console.WriteLine("contact is present");
+            }
+            else
+            {
+                Console.WriteLine("Contact is not present");
+                NewUser();
+            }
+        }
     }
 }

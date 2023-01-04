@@ -9,7 +9,8 @@
             PersonDetials person = new PersonDetials();
             while (true)
             {
-                Console.WriteLine("Enter number: \n 1. create new person \n 2. Display Data \n 3. Edit person Data  \n 4. Delete Person Data \n 5.Add Multiple Contacts  \n 6.Add With UniqueBookName \n 7.Display Dictionary ");
+                Console.WriteLine("Enter number: \n 1. create new person \n 2. Display Data \n 3. Edit person Data  \n 4. Delete Person Data \n 5.Add Multiple Contacts  \n 6.Add With UniqueBookName \n 7.Display Dictionary \n 8.Sreach By CityName");
+                Console.WriteLine("Enter the option");
                 int input = Convert.ToInt32(Console.ReadLine());
                 switch (input)
                 {
@@ -34,7 +35,11 @@
                     case 7:
                         person.Display();
                         break;
+                    case 8:
+                        person.DuplicateContact();
+                        break;
                 }
+                Console.WriteLine("------------------------------");
             }
         }
     }

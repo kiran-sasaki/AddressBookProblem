@@ -146,7 +146,7 @@ namespace AddressBookAssignmentProblem
                 NewUser();
             }
         }
-        public void SearchPersonsByCity()
+        public void SearchPersonByCity()
         {
             Console.WriteLine("enter the name to search: ");
             string personName = Console.ReadLine();

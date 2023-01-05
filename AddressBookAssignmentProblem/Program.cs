@@ -39,7 +39,7 @@
                         person.DuplicateContact();
                         break;
                     case 9:
-                        person.SearchPersonsByCity();
+                        person.SearchPersonByCity();
                         break;
                 }
                 Console.WriteLine("------------------------------");

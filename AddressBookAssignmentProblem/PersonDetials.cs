@@ -185,7 +185,7 @@ namespace AddressBookAssignmentProblem
                 {
                     count++;
                 }
-                Console.WriteLine("No of count {0} in city {1}",count,cityname);
+                Console.WriteLine("No of contacts {0} in city {1}",count,cityname);
             }
         }
     }

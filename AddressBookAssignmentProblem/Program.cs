@@ -9,7 +9,7 @@
             PersonDetials person = new PersonDetials();
             while (true)
             {
-                Console.WriteLine("Enter number: \n 1. create new person \n 2. Display Data \n 3. Edit person Data  \n 4. Delete Person Data \n 5.Add Multiple Contacts  \n 6.Add With UniqueBookName \n 7.Display Dictionary \n 8.Search Duplicate Contacts \n 9.Sreach By CityName \n 10.View Persons By CityName");
+                Console.WriteLine("Enter number: \n 1. create new person \n 2. Display Data \n 3. Edit person Data  \n 4. Delete Person Data \n 5.Add Multiple Contacts  \n 6.Add With UniqueBookName \n 7.Display Dictionary \n 8.Search Duplicate Contacts \n 9.Sreach By CityName \n 10.View Persons By CityName \n 11.CountByCityName");
                 Console.WriteLine("Enter the option");
                 int input = Convert.ToInt32(Console.ReadLine());
                 switch (input)
@@ -43,6 +43,9 @@
                         break;
                     case 10:
                         person.ViewPersonsByCity();
+                        break;
+                    case 11:
+                        person.CountPersonByCity();
                         break;
                 }
                 Console.WriteLine("------------------------------");

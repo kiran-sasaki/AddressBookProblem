@@ -155,7 +155,7 @@ namespace AddressBookAssignmentProblem
             foreach (var pair in book.Keys)
             {
                 Console.WriteLine("Address Book Name " + pair);
-                foreach (var data in contacts.FindAll(e => e.city == cityname && e.firstName == personName))
+                foreach (var data in book[pair].FindAll(e => e.city == cityname && e.firstName == personName))
                 {
                     Console.WriteLine("The Contact Details of " + data.city + " are\n:" + data.firstName + " " + data.lastName + " " + data.zipCode + " " + data.phoneNumber);
                 }
@@ -165,13 +165,9 @@ namespace AddressBookAssignmentProblem
         {
             Console.WriteLine("enter the city to search: ");
             string cityname = Console.ReadLine();
-            foreach (var pair in book.Keys)
+            foreach (var data in contacts.FindAll(e => e.city == cityname))
             {
-                Console.WriteLine("Address Book Name " + pair);
-                foreach (var data in contacts.FindAll(e => e.city == cityname))
-                {
-                    Console.WriteLine("The Contact Details of " + data.city + " are\n:" + data.firstName + " " + data.lastName + " " + data.zipCode + " " + data.phoneNumber);
-                }
+                Console.WriteLine("The Contact Details of " + data.city + " are\n:" + data.firstName + " " + data.lastName + " " + data.zipCode + " " + data.phoneNumber);
             }
         }
         public void CountPersonByCity()
@@ -179,13 +175,21 @@ namespace AddressBookAssignmentProblem
             Console.WriteLine("enter the city to search: ");
             string cityname = Console.ReadLine();
             int count = 0;
-            foreach(var pair in book.Keys)
+            foreach (var items in contacts.FindAll(e => e.city == cityname))
             {
-                foreach(var items in contacts.FindAll(e => e.city == cityname))
-                {
-                    count++;
-                }
-                Console.WriteLine("No of contacts {0} in city {1}",count,cityname);
+                count++;
+            }
+            Console.WriteLine("No of contacts {0} in city {1}", count, cityname);
+        }
+        public void SortPersonName()
+        {
+            foreach (var items in contacts.OrderBy(e => e.firstName))
+            {
+                Console.WriteLine("First Name: " + items.firstName);
+                Console.WriteLine("Last Name: " + items.lastName);
+                Console.WriteLine("City : " + items.city);
+                Console.WriteLine("Zip : " + items.zipCode);
+                Console.WriteLine("Phone Number: " + items.phoneNumber);
             }
         }
     }

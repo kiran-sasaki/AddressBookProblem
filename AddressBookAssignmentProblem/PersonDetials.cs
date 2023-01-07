@@ -214,5 +214,29 @@ namespace AddressBookAssignmentProblem
                 Console.WriteLine("Phone Number: " + items.phoneNumber);
             }
         }
+        public void ReadAndWriteFile()
+        {
+            string filepath = @"E:\C#\AddressBookAssignmentProblem\AddressBookAssignmentProblem\NewFolder\person.txt";
+            foreach(var data in contacts)
+            {
+                using (StreamWriter sw = File.AppendText(filepath))
+                    {
+                        sw.WriteLine("FirastName:" +data.firstName);
+                        sw.WriteLine("LastName: "+data.lastName);
+                        sw.WriteLine("City: "+data.city);
+                        sw.WriteLine("Zipcode: "+data.zipCode);
+                        sw.WriteLine("PhoneNmuber: "+data.phoneNumber);
+                        sw.Close();
+                    }
+                using(StreamReader sr = File.OpenText(filepath))
+                {
+                    string s=" ";
+                    while((s=sr.ReadLine()) != null)
+                    {
+                        Console.WriteLine(s);
+                    }
+                }
+            }
+        }
     }
 }

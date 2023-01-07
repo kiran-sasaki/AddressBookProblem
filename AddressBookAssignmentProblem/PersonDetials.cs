@@ -192,5 +192,27 @@ namespace AddressBookAssignmentProblem
                 Console.WriteLine("Phone Number: " + items.phoneNumber);
             }
         }
+        public void SortbyCityName()
+        {
+            foreach (var items in contacts.OrderBy(e => e.city))
+            {
+                Console.WriteLine("First Name: " + items.firstName);
+                Console.WriteLine("Last Name: " + items.lastName);
+                Console.WriteLine("City : " + items.city);
+                Console.WriteLine("Zip : " + items.zipCode);
+                Console.WriteLine("Phone Number: " + items.phoneNumber);
+            }
+        }
+        public void SortbyZipcode()
+        {
+            foreach (var items in contacts.OrderBy(e => e.zipCode))
+            {
+                Console.WriteLine("First Name: " + items.firstName);
+                Console.WriteLine("Last Name: " + items.lastName);
+                Console.WriteLine("City : " + items.city);
+                Console.WriteLine("Zip : " + items.zipCode);
+                Console.WriteLine("Phone Number: " + items.phoneNumber);
+            }
+        }
     }
 }

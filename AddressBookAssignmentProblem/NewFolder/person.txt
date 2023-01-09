@@ -1,5 +1,4 @@
-﻿
-FirastName:kiran
+﻿FirastName:kiran
 LastName: sekar
 City: chennai
 Zipcode: 56546

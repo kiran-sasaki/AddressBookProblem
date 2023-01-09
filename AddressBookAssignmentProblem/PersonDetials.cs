@@ -1,4 +1,5 @@
 ﻿using CsvHelper;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -11,7 +12,7 @@ namespace AddressBookAssignmentProblem
     public class PersonDetials
     {
         //Creating a list 
-        public static List<Contact> contacts = new List<Contact>();
+        public List<Contact> contacts = new List<Contact>();
         //Creating a Dictionary
         Dictionary<string, List<Contact>> book = new Dictionary<string, List<Contact>>();
         //Method for Adding Person
@@ -264,6 +265,16 @@ namespace AddressBookAssignmentProblem
                 {
                     csvImport.WriteRecords<Contact>(contacts);
                 }
+            }
+        }
+        public void ReadJSONFile()
+        {
+            string Jsonfilepath = @"E:\C#\AddressBookAssignmentProblem\AddressBookAssignmentProblem\NewFolder\Person.json";
+            var Json=File.ReadAllText(Jsonfilepath);
+            this.contacts = JsonConvert.DeserializeObject<List<Contact>>(Json);
+            foreach(var data in contacts)
+            {
+                Console.WriteLine(data.firstName+" "+data.lastName+" "+data.phoneNumber+" "+data.city+" "+data.zipCode);
             }
         }
     }

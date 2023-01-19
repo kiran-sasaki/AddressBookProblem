@@ -32,3 +32,21 @@ SELECT
 END CATCH
 
 Exec spUpdatePerson
+
+
+Create Procedure spGetPersonDate(@DateAdded varchar(max))
+As begin
+try
+select * from AddressBook where DateAdded=@DateAdded
+End try
+Begin Catch
+SELECT
+		ERROR_NUMBER() AS ErrorNumber
+		,ERROR_SEVERITY() AS ErrorSeverity
+		,ERROR_STATE() AS ErrorState
+		,ERROR_PROCEDURE() AS ErrorProcedure
+		,ERROR_LINE() AS ErrorLine
+		,ERROR_MESSAGE() AS ErrorMessage
+END CATCH
+
+Exec spGetPersonDate

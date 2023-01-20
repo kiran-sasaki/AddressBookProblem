@@ -159,6 +159,39 @@ namespace AddressBookAssignmentProblem
                 throw new Exception(ex.Message);
             }
         }
+        public int AddPresoninAddressBook(ContactModel model)
+        {
+            try
+            {
+                using (this.sqlconnection)
+                {
+                    this.sqlconnection.Open();
+                    SqlCommand command = new SqlCommand("spAddPerson", this.sqlconnection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@ID", model.ID);
+                    command.Parameters.AddWithValue("@FirstName", model.FirstName);
+                    command.Parameters.AddWithValue("@LastName", model.LastName);
+                    command.Parameters.AddWithValue("@Address", model.Address);
+                    command.Parameters.AddWithValue("@PhoneNumber", model.PhoneNumber);
+                    command.Parameters.AddWithValue("@EmailAddress", model.EmailAddress);
+                    command.Parameters.AddWithValue("@City", model.City);
+                    command.Parameters.AddWithValue("@State", model.State);
+                    command.Parameters.AddWithValue("@ZipCode", model.ZipCode);
+                    command.Parameters.AddWithValue("@DateAdded", model.DateAdded);
+                    int result = command.ExecuteNonQuery();
+                    this.sqlconnection.Close();
+                    if (result >= 1)
+                    {
+                        Console.WriteLine("Person Added Successfully");
+                    }
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }
 

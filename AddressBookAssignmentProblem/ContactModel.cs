@@ -17,5 +17,6 @@ namespace AddressBookAssignmentProblem
         public string City { get; set; }
         public string State { get; set; }
         public int ZipCode { get; set; }
+        public string DateAdded { get; set; }
     }
 }

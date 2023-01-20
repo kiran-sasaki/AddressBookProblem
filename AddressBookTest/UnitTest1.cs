@@ -40,5 +40,22 @@ namespace AddressBookTest
             int count = repository.GetPersonByCity(model);
             Assert.AreEqual(1, count);
         }
+        [Test]
+        public void AddpersonInDatabase()
+        {
+            ContactModel model = new ContactModel();
+            model.FirstName = "Paul";
+            model.LastName = "Pogba";
+            model.Address = "24th avenue";
+            model.PhoneNumber = "345432434879";
+            model.EmailAddress = "paulyP6@gmail.com";
+            model.City = "Turin";
+            model.State = "Allainz";
+            model.ZipCode = 543543;
+            model.DateAdded = "20-01-2023";
+            AddressBookRepository repository = new AddressBookRepository();
+            int result = repository.AddPresoninAddressBook(model);
+            Assert.AreEqual(1, result);
+        }
     }
 }

@@ -31,7 +31,7 @@ namespace AddressBookAssignmentProblem
                     {
                         PersonList.Add(new ContactModel
                         {
-                            ID = Convert.ToInt32(dr["ID"]),
+                            ID=Convert.ToInt32(dr["ID"]),
                             FirstName = Convert.ToString(dr["FirstName"]),
                             LastName = Convert.ToString(dr["LastName"]),
                             Address = Convert.ToString(dr["Address"]),
@@ -168,7 +168,6 @@ namespace AddressBookAssignmentProblem
                     this.sqlconnection.Open();
                     SqlCommand command = new SqlCommand("spAddPerson", this.sqlconnection);
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@ID", model.ID);
                     command.Parameters.AddWithValue("@FirstName", model.FirstName);
                     command.Parameters.AddWithValue("@LastName", model.LastName);
                     command.Parameters.AddWithValue("@Address", model.Address);
